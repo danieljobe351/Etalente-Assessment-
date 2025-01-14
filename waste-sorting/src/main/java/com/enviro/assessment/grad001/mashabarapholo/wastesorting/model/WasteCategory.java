@@ -1,6 +1,8 @@
 package com.enviro.assessment.grad001.mashabarapholo.wastesorting.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import
         jakarta.validation.constraints.NotBlank;
@@ -9,7 +11,8 @@ import
 
 public class WasteCategory {
     @Id //Primary key
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @NotBlank(message =" Name is required") // Validation Annotation
     private String name;
 
@@ -18,15 +21,15 @@ public class WasteCategory {
 
     }
     public WasteCategory(Long Id, String name) {
-        this.Id = Id;
+        this.id = Id;
         this.name = name;
     }
     //Getters and Setters Methods
     public Long getId() {
-        return Id;
+        return id;
     }
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
     public String getName() {
         return name;
